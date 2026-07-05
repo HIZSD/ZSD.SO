@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="tech-blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智搜达 — 全网网盘资源搜索引擎</title>
+  <meta name="description" content="智搜达，一站式聚合搜索夸克、百度、迅雷、阿里云盘等多网盘资源，快速找到影视、学习资料、软件工具等海量资源。">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('zhisouda-theme') || 'tech-blue';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="bg-theme-bg text-theme-text antialiased">
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

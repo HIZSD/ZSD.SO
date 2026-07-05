@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ghcr.io/fish2018/pansou:latest
+    container_name: zhisouda-backend
+    environment:
+      - PORT=8888
+      - ENABLED_PLUGINS=labi,zhizhen,shandian,duoduo,muou,wanou,jikepan,pan666,panyq,hunhepan
+      - CACHE_TTL=60
+      - CACHE_MAX_SIZE=200
+      - MAX_CONCURRENCY=200
+      - PLUGIN_TIMEOUT=30
+    volumes:
+      - zhisouda-data:/app/data
+    restart: unless-stopped
+    networks:
+      - zhisouda-net
+
+  frontend:
+    build: ./frontend
+    container_name: zhisouda-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - zhisouda-net
+
+volumes:
+  zhisouda-data:
+
+networks:
+  zhisouda-net:
+    driver: bridge
